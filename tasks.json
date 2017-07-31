@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "description": "Go to moon on Thursday"
+    },
+    {
+      "id": 2,
+      "description": "Hike Appalachian Friday"
+    },
+    {
+      "id": 3,
+      "description": "Meet with Elon re: pitch for LoopedIn"
+    }
+  ]
+}
