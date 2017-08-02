@@ -5,36 +5,36 @@ require 'pry'
 set :bind, '0.0.0.0'  # bind to all interfaces
 set :public_folder, File.join(File.dirname(__FILE__), "public")
 
-def tasks
-  file = File.read("tasks.json")
+def dogs
+  file = File.read("dogs.json")
   JSON.parse(file)
 end
 
-def new_task_id
-  tasks["tasks"].last["id"] + 1
+def new_dog_id
+  dogs["dogs"].last["id"] + 1
 end
 
-def write_to_json_file(task)
-  new_task = {id: new_task_id, description: task["description"] }
-  new_tasks = { tasks: tasks["tasks"].concat([new_task]) }
-  json_tasks = JSON.pretty_generate(new_tasks, indent: '  ')
-  File.write("tasks.json", json_tasks)
+def write_to_json_file(dog)
+  new_dog = {id: new_dog_id, breed: dog["breed"] }
+  new_dogs = { dogs: dogs["dogs"].concat([new_dog]) }
+  json_dogs = JSON.pretty_generate(new_dogs, indent: '  ')
+  File.write("dogs.json", json_dogs)
 end
 
-get "/tasks" do
+get "/dogs" do
   File.read(File.join('public', 'index.html'))
 end
 
-get "/api/v1/tasks" do
+get "/api/v1/dogs" do
   content_type :json
   status 200
-  tasks.to_json
+  dogs.to_json
 end
 
-post "/api/v1/tasks" do
+post "/api/v1/dogs" do
   json = JSON.parse(request.body.read)
-  if json["task"]
-    write_to_json_file(json["task"])
+  if json["dog"]
+    write_to_json_file(json["dog"])
     status 200
   else
     status 500
