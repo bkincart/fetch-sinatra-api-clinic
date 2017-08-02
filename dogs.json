@@ -11,6 +11,26 @@
     {
       "id": 3,
       "breed": "Beagles"
+    },
+    {
+      "id": 4,
+      "breed": "Great Dane"
+    },
+    {
+      "id": 5,
+      "breed": "Pitbull"
+    },
+    {
+      "id": 6,
+      "breed": "Yorkshire Terrier"
+    },
+    {
+      "id": 7,
+      "breed": "test"
+    },
+    {
+      "id": 8,
+      "breed": "test2"
     }
   ]
 }
