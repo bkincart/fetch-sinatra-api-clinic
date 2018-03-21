@@ -36,6 +36,7 @@ post "/api/v1/dogs" do
   if json["dog"]
     write_to_json_file(json["dog"])
     status 200
+    json["dog"].to_json
   else
     status 500
     { error: "Oops, something bad happened!!" }.to_json
